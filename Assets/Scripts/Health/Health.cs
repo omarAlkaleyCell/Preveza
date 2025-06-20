@@ -1,13 +1,16 @@
+using System;
 using UnityEngine;
 
 public class Health : MonoBehaviour,IDamagable
 {
+    public Action onDie;
     public float CurrentHealth { get; set; } = 100f;
     public float MaxHealth { get; set; } = 100f;
     [SerializeField] Animator anime;
     public void Die()
     {
         anime.SetTrigger("Die");
+        onDie?.Invoke();
     }
 
     public void Heal(int amount)
@@ -24,6 +27,7 @@ public class Health : MonoBehaviour,IDamagable
 
     public void TakeDamage(int damage)
     {
+        if (CurrentHealth <= 0) return;
         CurrentHealth -= damage;
         if (IsDead())
         {
