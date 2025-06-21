@@ -12,7 +12,7 @@ public class QuestSystem : Singleton<QuestSystem>
     public void StartQuest(Quest quest)
     {
         string message = ArabicFixer.Fix("مهمتك الآن هي " + quest.title);
-        questCompleteUI.ShowMessage(message);
+        questCompleteUI.ShowQuestMessage(message);
         currentQuest = quest;
         currentProgress = 0;
         Debug.Log("Started quest: " + quest.title);
@@ -24,10 +24,10 @@ public class QuestSystem : Singleton<QuestSystem>
         if (targetID == currentQuest.targetID)
         {
             currentProgress++;
-            Debug.Log("Progress: " + currentProgress + "/" + currentQuest.requiredAmount);
+            string progressMessage = ArabicFixer.Fix("تم تدمير " + currentProgress + " / " + currentQuest.requiredAmount,true);
             string[] message = new[] { ArabicFixer.Fix("أحسنت"), ArabicFixer.Fix("انت رائع"), ArabicFixer.Fix(""), ArabicFixer.Fix("اصابة رائعة") };
-            
-            questCompleteUI.ShowMessage(message[Random.Range(0, message.Length)]);
+            questCompleteUI.ShowProgressMessage(progressMessage);
+            questCompleteUI.ShowQuestMessage(message[Random.Range(0, message.Length)]);
             
             if (currentProgress >= currentQuest.requiredAmount)
             {
@@ -39,7 +39,7 @@ public class QuestSystem : Singleton<QuestSystem>
     void CompleteQuest()
     {
         string message = ArabicFixer.Fix("لقد اكملت المهمة بنجاح");
-        questCompleteUI.ShowMessage(message);
+        questCompleteUI.ShowQuestMessage(message);
         if (currentQuest.questType == QuestType.Kill)
         {
             QuizMode quizMode = FindAnyObjectByType<QuizMode>();

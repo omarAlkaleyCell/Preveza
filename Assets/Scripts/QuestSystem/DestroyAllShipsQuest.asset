@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 462ba69648c2aab4f8c061522a582f20, type: 3}
   m_Name: DestroyAllShipsQuest
   m_EditorClassIdentifier: 
-  title: "\u0642\u0645 \u0628\u062A\u062F\u0645\u064A\u0631 \u062C\u0645\u064A\u0639
-    \u0627\u0644\u0633\u0641\u0646"
+  title: "\u062A\u062F\u0645\u064A\u0631 \u062C\u0645\u064A\u0639 \u0627\u0644\u0633\u0641\u0646"
   description: To win destroy all the ships in the game
   questID: DestroyAllShips
   questType: 2

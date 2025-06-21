@@ -10,12 +10,19 @@ public class CannonController : MonoBehaviour
     [SerializeField] private GameObject cannonBallPrefab;
     [SerializeField] private GameObject cannonBallVFXPrefab;
     [SerializeField] private float forcePower;
+     private bool canFire = true;
 
     public void FireCannon()
     {
-        Invoke(nameof(SpawnCannonBall), fireCooldown);
+        if (!canFire) return;
+        SpawnCannonBall();
+        canFire = false; 
+        Invoke(nameof(ResetFireCooldown), fireCooldown);
     }
-
+    private void ResetFireCooldown()
+    {
+        canFire = true;
+    }
     private void SpawnCannonBall()
     {
         if (cannonBallPrefab == null || cannonTransform == null)

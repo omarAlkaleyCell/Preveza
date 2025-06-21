@@ -4,48 +4,58 @@ using TMPro;
 public class QuestCompleteUI : MonoBehaviour
 {
     public TextMeshProUGUI questText;
+    public TextMeshProUGUI progressText;
     public float fadeDuration = 1f;
     public float displayDuration = 2f;
 
     void Start()
     {
-        SetAlpha(0);
+        SetAlpha(questText, 0);
+        SetAlpha(progressText, 0);
     }
 
-    public void ShowMessage(string message)
+    private void ShowMessage(TextMeshProUGUI text,string message)
     {
-        questText.text = message;
+        text.text = message;
         StopAllCoroutines();
-        StartCoroutine(FadeInOut());
+        StartCoroutine(FadeInOut(text));
+    }
+    public void ShowQuestMessage(string message)
+    {
+        ShowMessage(questText,message);
+    }
+    public void ShowProgressMessage(string message)
+    {
+        ShowMessage(progressText,message);
     }
 
-    private System.Collections.IEnumerator FadeInOut()
+    private System.Collections.IEnumerator FadeInOut(TextMeshProUGUI text)
     {
-        yield return FadeTo(1f, fadeDuration);
+        yield return FadeTo(text, 1f, fadeDuration);
         yield return new WaitForSeconds(displayDuration);
-        yield return FadeTo(0f, fadeDuration);
+        yield return FadeTo(text, 0f, fadeDuration);
     }
 
-    private System.Collections.IEnumerator FadeTo(float targetAlpha, float duration)
+    private System.Collections.IEnumerator FadeTo(TextMeshProUGUI text,float targetAlpha, float duration)
     {
-        float startAlpha = questText.color.a;
+        float startAlpha = text.color.a;
         float time = 0f;
 
         while (time < duration)
         {
             float alpha = Mathf.Lerp(startAlpha, targetAlpha, time / duration);
-            SetAlpha(alpha);
+            SetAlpha(text,alpha);
             time += Time.deltaTime;
             yield return null;
         }
 
-        SetAlpha(targetAlpha);
+        SetAlpha(text,targetAlpha);
     }
 
-    private void SetAlpha(float alpha)
+    private void SetAlpha(TextMeshProUGUI text,float alpha)
     {
-        var color = questText.color;
+        var color = text.color;
         color.a = alpha;
-        questText.color = color;
+        text.color = color;
     }
 }

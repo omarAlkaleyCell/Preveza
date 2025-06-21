@@ -8,6 +8,7 @@ public class CannonBall : MonoBehaviour
     [SerializeField] private GameObject[] shipCollisionEffectPrefab;
     [SerializeField] UnityEvent onHitTarget;
     [SerializeField] UnityEvent onHitWater;
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ship"))

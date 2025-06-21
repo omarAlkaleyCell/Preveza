@@ -14,7 +14,6 @@ public class HighlightManager : Singleton<HighlightManager>
 
         if (!(ModeManager.Instance.CurrentMode is CannonControllerMode))
         {
-            print($"Current mode is {ModeManager.Instance.CurrentMode}, skipping highlight update.");
             RemoveCurrentHighlight();
             return;
         }
@@ -51,7 +50,6 @@ public class HighlightManager : Singleton<HighlightManager>
             currentHighlight.RemoveHighlight();
             currentHighlight = null;
             GetCurrentHighlightedObject = null;
-
         }
     }
 }

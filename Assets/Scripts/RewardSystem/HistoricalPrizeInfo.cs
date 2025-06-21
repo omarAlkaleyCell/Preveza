@@ -7,39 +7,54 @@ public class HistoricalPrizeInfo : MonoBehaviour
 {
     [SerializeField] private string prizeMessage;
     [SerializeField] private TextMeshProUGUI prizeInfoText;
+    public float fadeDuration = 1f;
+    public float displayDuration = 2f;
     private Health health;
     Coroutine fadingCoroutine;
     private void Start()
     {
         health = GetComponent<Health>();
-        health.onDie += ShowUIPrizeInfo;
+        health.onDie += ShowMessage;
     }
     private void OnDestroy()
     {
-        health.onDie -= ShowUIPrizeInfo;
-    }
-    public void ShowUIPrizeInfo()
-    {
-        prizeInfoText.text = ArabicFixer.Fix(prizeMessage, true, false);
-        if (fadingCoroutine != null) StopCoroutine(fadingCoroutine);
-        fadingCoroutine = StartCoroutine(FadeTextToTargetAlpha(0f, 1f, prizeInfoText));
+        health.onDie -= ShowMessage;
     }
     
-    private IEnumerator FadeTextToTargetAlpha(float targetAlpha,float duration, TextMeshProUGUI text)
+    public void ShowMessage()
     {
-        Color originalColor = new Color(text.color.r,text.color.g,text.color.b,1f);
-        yield return new WaitForSeconds(duration);
-        float elapsed = 0f;
+        prizeInfoText.text = ArabicFixer.Fix(prizeMessage, true, false);
+        StopAllCoroutines();
+        StartCoroutine(FadeInOut());
+    }
 
-        while (elapsed < duration)
+    private System.Collections.IEnumerator FadeInOut()
+    {
+        yield return FadeTo(1f, fadeDuration);
+        yield return new WaitForSeconds(displayDuration);
+        yield return FadeTo(0f, fadeDuration);
+    }
+
+    private System.Collections.IEnumerator FadeTo(float targetAlpha, float duration)
+    {
+        float startAlpha = prizeInfoText.color.a;
+        float time = 0f;
+
+        while (time < duration)
         {
-            elapsed += Time.deltaTime;
-            float alpha = Mathf.Lerp(originalColor.a, targetAlpha, elapsed / duration);
-            text.color = new Color(originalColor.r, originalColor.g, originalColor.b, alpha);
+            float alpha = Mathf.Lerp(startAlpha, targetAlpha, time / duration);
+            SetAlpha(alpha);
+            time += Time.deltaTime;
             yield return null;
         }
 
-        // Ensure alpha is zero at the end
-        text.color = new Color(originalColor.r, originalColor.g, originalColor.b, targetAlpha);
+        SetAlpha(targetAlpha);
+    }
+
+    private void SetAlpha(float alpha)
+    {
+        var color = prizeInfoText.color;
+        color.a = alpha;
+        prizeInfoText.color = color;
     }
 }
