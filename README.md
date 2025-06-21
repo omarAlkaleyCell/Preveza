@@ -1,4 +1,4 @@
-#⚓ Preveza: Historical Naval Warfare Game
+**#⚓ Preveza: Historical Naval Warfare Game**
 
 Preveza is a 15th-century naval action game inspired by real historical events and centered around the legendary admiral Hayreddin Barbarossa. As the player, you command Barbarossa’s warship in intense sea battles, strategically destroying enemy ships while uncovering key moments from the historic Battle of Preveza.
 
