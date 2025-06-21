@@ -7,7 +7,8 @@ public class CannonControllerMode : MonoBehaviour, IMode
     [SerializeField] private ImageFader aimingUI;
     [SerializeField] private UnityEvent onEnterMode;
     [SerializeField] private UnityEvent onExitMode;
-
+    [SerializeField] Quest quest;
+    private bool isQuestStarted;
     void Start()
     {
         Initialize();
@@ -18,6 +19,11 @@ public class CannonControllerMode : MonoBehaviour, IMode
         CameraController.Instance.MoveCameraToTargetLocation(cannon, () =>
         {
             aimingUI.Show();
+            if (!isQuestStarted)
+            {
+                QuestSystem.Instance.StartQuest(quest);
+                isQuestStarted = true;
+            }
         });
         onEnterMode?.Invoke();
     }
