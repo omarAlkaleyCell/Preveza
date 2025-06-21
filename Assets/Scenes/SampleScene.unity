@@ -2261,7 +2261,7 @@ Transform:
   m_GameObject: {fileID: 241461814}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9465921, z: -0, w: 0.32243383}
-  m_LocalPosition: {x: -154.012, y: 29.33436, z: 252.686}
+  m_LocalPosition: {x: -154.534, y: 27.902, z: 253.363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7151,11 +7151,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFE8D\uFEB3\uFE98\uFEE4\uFEAE\uFE95 \uFE8D\uFEDF\uFEE4\uFECC\uFEAE\uFEDB\uFE94
-    \uFEA7\uFEE4\uFEB2 \uFEB3\uFE8E\uFECB\uFE8E\uFE95 \uFEA9\u064F\uFEE3\uFEAE\uFE95
-    \uFEA7\uFEFC\uFEDF\uFEEC\uFE8E 13 \uFEB3\uFED4\uFEF4\uFEE8\uFE94 \uFEE3\uFEE6
-    \uFEB3\uFED4\uFEE6 \uFE8D\uFEDF\uFE98\uFEA4\uFE8E\uFEDF\uFED2 \uFE8D\uFEF7\uFEED\uFEAD\uFE91\uFEF2"
-  m_isRightToLeft: 1
+  m_text: 
+  m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 86b3ae3f6c41c2840865ddc8365d9de7, type: 2}
   m_sharedMaterial: {fileID: 4026911520959424106, guid: 86b3ae3f6c41c2840865ddc8365d9de7, type: 2}
   m_fontSharedMaterials: []
@@ -9470,8 +9467,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872256668}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.05194045, y: 0.7133478, z: -0.05317015, w: -0.69685733}
-  m_LocalPosition: {x: 75.71303, y: 67.39348, z: 76.98261}
+  m_LocalRotation: {x: -0.04317861, y: 0.95678157, z: -0.2063347, w: -0.20032655}
+  m_LocalPosition: {x: 95.205894, y: 78.82619, z: 74.16059}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9994,11 +9991,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uFE8D\uFEB3\uFE98\uFEE4\uFEAE\uFE95 \uFE8D\uFEDF\uFEE4\uFECC\uFEAE\uFEDB\uFE94
-    \uFEA7\uFEE4\uFEB2 \uFEB3\uFE8E\uFECB\uFE8E\uFE95 \uFEA9\u064F\uFEE3\uFEAE\uFE95
-    \uFEA7\uFEFC\uFEDF\uFEEC\uFE8E 13 \uFEB3\uFED4\uFEF4\uFEE8\uFE94 \uFEE3\uFEE6
-    \uFEB3\uFED4\uFEE6 \uFE8D\uFEDF\uFE98\uFEA4\uFE8E\uFEDF\uFED2 \uFE8D\uFEF7\uFEED\uFEAD\uFE91\uFEF2"
-  m_isRightToLeft: 1
+  m_text: 
+  m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 86b3ae3f6c41c2840865ddc8365d9de7, type: 2}
   m_sharedMaterial: {fileID: 4026911520959424106, guid: 86b3ae3f6c41c2840865ddc8365d9de7, type: 2}
   m_fontSharedMaterials: []
@@ -22745,6 +22739,12 @@ MonoBehaviour:
   quizPanel: {fileID: 2055186855}
   resultPanel: {fileID: 867315102}
   scoreText: {fileID: 927158391}
+  onAnswerCorrect:
+    m_PersistentCalls:
+      m_Calls: []
+  onAnswerIncorrect:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &2055186852
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26969,31 +26969,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7277802327414017193, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.312387
+      value: -25.680367
       objectReference: {fileID: 0}
     - target: {fileID: 7277802327414017193, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.606036
+      value: 19.038744
       objectReference: {fileID: 0}
     - target: {fileID: 7277802327414017193, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.488302
+      value: 43.23466
       objectReference: {fileID: 0}
     - target: {fileID: 7277802327414017193, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.35200804
+      value: 0.7824769
       objectReference: {fileID: 0}
     - target: {fileID: 7277802327414017193, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.026237538
+      value: 0.16875468
       objectReference: {fileID: 0}
     - target: {fileID: 7277802327414017193, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.933041
+      value: 0.58591086
       objectReference: {fileID: 0}
     - target: {fileID: 7277802327414017193, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0695447
+      value: -0.1263339
       objectReference: {fileID: 0}
     - target: {fileID: 7277802327414017196, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: field of view

@@ -2,16 +2,18 @@ using System.Collections.Generic;
 using ArabicSupport;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Quiz : MonoBehaviour
 {
-    public TextMeshProUGUI questionText;
-    public Button[] answerButtons;
-    public GameObject quizPanel;
-    public GameObject resultPanel;
-    public TextMeshProUGUI scoreText;
-
+    [SerializeField] private TextMeshProUGUI questionText;
+    [SerializeField] private Button[] answerButtons;
+    [SerializeField] private GameObject quizPanel;
+    [SerializeField] private GameObject resultPanel;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private UnityEvent onAnswerCorrect;
+    [SerializeField] private UnityEvent onAnswerIncorrect;
     private QuizData quizData;
     private int currentQuestionIndex = 0;
     private int score = 0;
@@ -50,6 +52,11 @@ public class Quiz : MonoBehaviour
         if (quizData.questions[currentQuestionIndex].correctAnswerIndex == selectedIndex)
         {
             score++;
+            onAnswerCorrect?.Invoke();
+        }
+        else
+        {
+            onAnswerIncorrect?.Invoke();
         }
 
         currentQuestionIndex++;
@@ -60,12 +67,6 @@ public class Quiz : MonoBehaviour
     {
         quizPanel.SetActive(false);
         resultPanel.SetActive(true);
-        scoreText.text = $"You got {score}/{quizData.questions.Length} correct!";
+        scoreText.text = ArabicFixer.Fix("لقد أجبت بشكل صحيح عدد "+ $"\"{score}\"" +" سؤال من " + $"\"{quizData.questions.Length}\"" + " أسئلة ",true);
     }
-    // void SpawnObjectFrom(GameObject[] objects)
-    // {
-    //     int index = UnityEngine.Random.Range(0, objects.Length);
-    //     GameObject instance = Instantiate(objects[index], goodAndBadAnswersVFXPosition, Quaternion.identity);
-    //     Destroy(instance, 3f);
-    // }
 }

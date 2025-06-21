@@ -45,7 +45,7 @@ public class QuestSystem : Singleton<QuestSystem>
             QuizMode quizMode = FindAnyObjectByType<QuizMode>();
             if (quizMode == null) return;
             ModeManager.Instance.RegisterMode(2, quizMode);
-            ModeManager.Instance.SetCurrentModeById(2);
+            ModeManager.Instance.SwitchToNextMode();
         }
         Debug.Log("Quest Complete: " + currentQuest.title);
         currentQuest = null;
